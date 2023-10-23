@@ -27,7 +27,7 @@ const InputHolder = styled.div`
     pointer-events: none;
   }
   & > input.withIcon {
-    padding-right: 36px !important;
+    padding-right: 2rem !important;
   }
 `;
 const InputLabel = styled.label`
@@ -40,6 +40,7 @@ const InputLabel = styled.label`
   color: rgba(0, 0, 0, 0.6);
   white-space: nowrap;
   overflow: hidden;
+  width: calc(100% - 2rem);
 `;
 
 const TodoInput = styled.input`

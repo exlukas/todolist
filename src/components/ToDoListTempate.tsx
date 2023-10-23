@@ -114,10 +114,12 @@ const ToDoList = styled.div`
     display: flex;
     flex-direction: column;
     overflow: auto;
-    padding: 0 1rem;
-    padding-top: 0.5rem;
+    padding: 0.5rem 1rem;
     height: 380px;
     gap: 0.7rem;
+    @media (max-width: 700px) {
+      height: initial;
+    }
   }
   & div.searchRow {
     display: flex;
@@ -128,6 +130,9 @@ const ToDoList = styled.div`
       font-size: 18px;
       font-weight: 700;
     }
+  }
+  @media (max-width: 700px) {
+    width: 100%;
   }
 `;
 
@@ -140,6 +145,7 @@ const ToDoListRow = styled.div`
   overflow: hidden;
   flex-shrink: 0;
   min-width: 300px;
+  height: 80px;
 `;
 
 const Deadline = styled.div`
@@ -168,6 +174,7 @@ const TitleSection = styled(Deadline)`
   & span {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `;
 

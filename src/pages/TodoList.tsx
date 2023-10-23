@@ -75,13 +75,14 @@ const ToDoListBackground = styled.div`
   max-width: 1000px;
   box-shadow: rgba(0, 0, 0, 0.54) 0px 3px 50px;
   @media (max-width: 700px) {
-    max-height: 80%;
+    max-height: 85%;
   }
 `;
 const ListGroup = styled.div`
   display: flex;
   @media (max-width: 700px) {
     flex-direction: column;
+    overflow: auto;
   }
 `;
 const ToDoListHeader = styled.div`

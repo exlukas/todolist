@@ -1,11 +1,16 @@
 import { useState, useEffect, useMemo } from "react";
 import { useApiHandler } from "../hooks/useApiHandler";
 import getTODOItems from "../api/getTODOItems";
-import styled from "styled-components";
 import AddIcon from "../assets/add.png";
-import { ToDoModal } from "../components/ToDoModal";
+import { ToDoModal } from "../components/ToDoModal/ToDoModal";
 import { Icon } from "../styled/Icon";
-import { ToDoListTempate } from "../components/ToDoListTempate";
+import { ToDoListTemplate } from "../components/ToDoListTemplate/ToDoListTemplate";
+import {
+  Background,
+  ListGroup,
+  ToDoListBackground,
+  ToDoListHeader,
+} from "./ToDoListStyles";
 
 export const TodoList = () => {
   const [getItems, , { data }] = useApiHandler(getTODOItems);
@@ -39,12 +44,12 @@ export const TodoList = () => {
           />
         </ToDoListHeader>
         <ListGroup>
-          <ToDoListTempate
+          <ToDoListTemplate
             data={activeList}
             title="Active"
             updateList={getItems}
           />
-          <ToDoListTempate
+          <ToDoListTemplate
             data={completedList}
             title="Completed"
             updateList={getItems}
@@ -57,44 +62,3 @@ export const TodoList = () => {
     </Background>
   );
 };
-
-const Background = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-`;
-const ToDoListBackground = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #e5e8e1;
-  border-radius: 0.5rem;
-  width: 100%;
-  overflow: hidden;
-  max-width: 1000px;
-  box-shadow: rgba(0, 0, 0, 0.54) 0px 3px 50px;
-  @media (max-width: 700px) {
-    max-height: 85%;
-  }
-`;
-const ListGroup = styled.div`
-  display: flex;
-  @media (max-width: 700px) {
-    flex-direction: column;
-    overflow: auto;
-  }
-`;
-const ToDoListHeader = styled.div`
-  display: flex;
-  padding: 1rem;
-  width: 100%;
-  align-items: center;
-  background-color: #cad1c3;
-  justify-content: space-between;
-
-  & > span {
-    font-size: 24px;
-    font-weight: 700;
-  }
-`;

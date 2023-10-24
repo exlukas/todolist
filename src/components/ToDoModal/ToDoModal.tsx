@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
-import styled from "styled-components";
-import CloseIcon from "../assets/close.svg";
-import { Icon } from "../styled/Icon";
-import { Formik, Form, Field } from "formik";
+import CloseIcon from "../../assets/close.svg";
+import { Icon } from "../../styled/Icon";
+import { Formik, Field } from "formik";
 import * as Yup from "yup";
-import { useApiHandler } from "../hooks/useApiHandler";
-import postTODOItem from "../api/postTODOItem";
-import { Input } from "../styled/Input";
+import { useApiHandler } from "../../hooks/useApiHandler";
+import postTODOItem from "../../api/postTODOItem";
+import { Input } from "../../styled/Input";
+import { Button, Modal, ModalHeader, MyForm } from "./ToDoModalStyles";
 
 const todoValidation = Yup.object().shape({
   title: Yup.string().required("Required"),
@@ -96,47 +96,3 @@ export const ToDoModal = (props: {
     </Modal>
   );
 };
-
-const Modal = styled.dialog`
-  display: flex;
-  flex-direction: column;
-  border-radius: 0.5rem;
-  padding: 0 !important;
-  border: none;
-  min-width: 30%;
-`;
-
-const MyForm = styled(Form)`
-  display: flex;
-  padding: 1rem;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const Button = styled.button`
-  background-color: #b6bcb0;
-  border-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  height: 36px;
-  font-weight: 700;
-  &:hover {
-    background-color: #8d9289;
-  }
-  &:disabled {
-    background-color: rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-  }
-`;
-
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #b6bcb0;
-  & > span {
-    font-size: 24px;
-    font-weight: 700;
-  }
-`;
